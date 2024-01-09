@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDT RSA</title>
+
+    <style>
+        section#encrypt {
+            width: 50%;
+            height: 150px;
+            display: inline-block;
+            text-align: center;
+        }
+
+        section#decrypt {
+            width: 50%;
+            height: 150px;
+            display: inline-block;
+            text-align: center;
+        }
+
+        div#gr {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        body {
+            background-color: #f4f4f4e4;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: 'Lucida Sans';
+            text-shadow: 3px 3px 10px;
+        }
+
+        h2{
+            font-family: Verdana;
+        }
+
+        button{
+            padding: 5px;
+            padding-left: 10px;
+            padding-right: 10px;
+            border-radius:5px ;
+        }
+
+        textarea{
+            border-radius: 10px;
+        }
+        label {
+            display: block;
+        }
+        div#output{
+            text-align: left;
+        }
+    </style>
+
+    <script>
+
+
+        let public_key = [143, 7];
+        let private_key = [143, 103];
+
+        // let public_key = [6887, 361];
+        // let private_key = [6887, 3481];
+
+        function encrypt(word) {
+            let crypt = '';
+            for (let i = 0; i < word.length; i++) {
+                let asc = word.charCodeAt(i);
+                let de = (asc ** public_key[1]) % public_key[0];
+                crypt += de + ' ';
+            }
+            return crypt;
+        }
+
+        function decrypt(arr) {
+            let crypt = '';
+            for (let code = 0; code < arr.length; code++) {
+                let asc = Number(arr[code]);
+                let dec = (BigInt(asc) ** BigInt(private_key[1])) % BigInt(private_key[0]);
+                let char = String.fromCharCode(dec.toString());
+                crypt += char;
+            }
+            return crypt;
+        }
+
+        function encode() {
+            let a = document.getElementById("prompt").value;
+            document.getElementById("demo").innerHTML = encrypt(a);
+        }
+
+        function decode() {
+            let b = document.getElementById("cypher").value;
+            let inputText = decrypt(b.split(" "));
+            processInput(inputText);
+        }
+
+        function processInput(inputText) {
+            const lines = inputText.split('\n');
+
+            if (lines.length < 2) {
+                alert("Invalid input format. Please enter a question followed by options.");
+                return;
+            }
+
+            const question = lines[0].trim();
+            const options = [];
+
+            for (let i = 1; i < lines.length; i++) {
+                const option = lines[i].trim();
+                if (option.length > 0) {
+                    options.push(option);
+                }
+            }
+
+            if (question && options.length > 0) {
+                const outputDiv = document.getElementById("output");
+                outputDiv.innerHTML = `<h2>${question}</h2>`;
+
+                options.forEach((option, index) => {
+                    outputDiv.innerHTML += `
+                        <br>
+                        <label>
+                            <input type="radio" name="options" value="${index}">
+                            ${option}
+                        </label>
+                        <br>
+                    `;
+                });
+            } else {
+                const outputDiv = document.getElementById("output");
+                outputDiv.innerHTML=inputText;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>RSA Encryption Prototype</h1>
+    <div id="gr">
+        <section id="encrypt">
+            <h2>Encrypt</h2>
+            <textarea id="prompt" cols="70" rows="15" placeholder="Enter Questions..."></textarea><br>
+            <button onclick="encode()">Encrypt</button>
+            <p id="demo"></p>
+        </section>
+
+
+        <section id="decrypt">
+            <h2>Decrypt</h2>
+            <textarea id="cypher" cols="70" rows="15" placeholder="Enter Encrypted Questions..."></textarea><br>
+            <button onclick="decode()">Decrypt</button>
+            <div id="output"></div>
+        </section>
+    </div>
+
+
+</body>
+
+</html>
