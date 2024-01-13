@@ -53,6 +53,3 @@ Welcome to the ExamSecure Prototype, a web application designed to showcase a si
 
 For additional assistance, visit the [ChatGPT Help Center](https://chat.openai.com). Your feedback is valuable; please use the integrated chatbox for any comments or suggestions.
 
-## License
-
-This ExamSecure Prototype is open-source and distributed under the [MIT License](LICENSE). Feel free to explore, modify, and contribute to the development of this project.
