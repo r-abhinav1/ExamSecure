@@ -51,5 +51,21 @@ Welcome to the ExamSecure Prototype, a web application designed to showcase a si
 
 ## Help and Feedback
 
-For additional assistance, visit the [ChatGPT Help Center](https://chat.openai.com). Your feedback is valuable; please use the integrated chatbox for any comments or suggestions.
+Your feedback is valuable; please use the integrated chatbox for any comments or suggestions.
 
+## Screenshots
+### Live rendering
+![live rendering ](https://github.com/r-abhinav1/ExamSecure/assets/143101364/eb6c346b-8221-4987-bcfb-2fc100766ac0)
+
+![live rendering 2](https://github.com/r-abhinav1/ExamSecure/assets/143101364/9b52a29a-19e7-45df-ad8a-6af72bd9811d)
+
+### Encryption and Decryption
+![Encryption and decryption](https://github.com/r-abhinav1/ExamSecure/assets/143101364/50de2f40-0795-4397-9544-fe193c0aff34)'
+
+![Encryption and decryption2](https://github.com/r-abhinav1/ExamSecure/assets/143101364/bd929697-e51c-4a43-9853-8fe85081f7f6)
+
+### Other Features
+![History](https://github.com/r-abhinav1/ExamSecure/assets/143101364/b8828121-f87f-41e0-8ea0-0e83270503da)
+
+
+![Feedback](https://github.com/r-abhinav1/ExamSecure/assets/143101364/fffcb80f-555e-4673-b0c4-2d9f2da8463a)
