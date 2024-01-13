@@ -37,7 +37,7 @@ Welcome to the ExamSecure Prototype, a web application designed to showcase a si
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/examsecure-prototype.git
+   git clone https://github.com/r-abhinav1/examsecure-prototype.git
    ```
 
 2. Open the `index.html` file in your web browser.
