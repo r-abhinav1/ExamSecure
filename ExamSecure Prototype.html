@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>RSA Encryption Prototype</title>
+    <script type="text/javascript">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                displayMath: [['$$', '$$']],
+                processEscapes: true,
+                processEnvironments: true
+            }
+        });
+
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+    </script>
+
+    <link rel="stylesheet" href="exam.css">
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+        </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+
+</head>
+
+<body>
+    <h1>ExamSecure Prototype</h1>
+    <br><br><br>
+    <div id="gr">
+        <section id="encrypt">
+            <h2>Encrypt</h2>
+            <textarea id="prompt" placeholder="Enter Questions..." onkeyup="live()"></textarea><br>
+            <button class="en" onclick="encode()">Encrypt</button>
+            <div id="demo"></div>
+        </section>
+
+        <div id="history-icon" onclick="toggleSidebar()">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+        </div>
+
+        <section id="decrypt">
+            <h2>Decrypt</h2>
+            <textarea id="cypher" placeholder="Enter Encrypted Questions..."></textarea><br>
+            <button class="en" onclick="decode()">Decrypt</button>
+            <div id="output"></div>
+        </section>
+    </div>
+    <button id="help"><a href="https://chat.openai.com" target="_blank">Help</a></button>
+    <button id="feedback-button" onclick="toggleChatbox()">Feedback</button>
+
+    <div id="chatbox-container">
+        <button class="close-button" onclick="toggleChatbox()">X</button>
+
+        <div id="chatbox-header">
+            Feedback Chat
+        </div>
+        <div id="chatbox-content">
+        </div>
+        <input type="text" id="chatbox-input" placeholder="Type your feedback here and press Enter...">
+    </div>
+
+    <div id="sidebar-container" onclick="closeSidebar(event)">
+        <div id="sidebar">
+            <h2>History</h2>
+            <div id="history-content"></div>
+        </div>
+    </div>
+    <script src="exam.js"></script>
+</body>
+
+</html>
